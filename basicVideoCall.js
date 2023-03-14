@@ -69,7 +69,7 @@ async function startBasicCall() {
             // Join an RTC channel.
             options.uid = await rtc.client.join(options.appId, options.channel, options.token, Number(options.uid));
             // Create a local audio track from the audio sampled by a microphone.
-            // rtc.localAudioTrack = await AgoraRTC.createMicrophoneAudioTrack();
+            rtc.localAudioTrack = await AgoraRTC.createMicrophoneAudioTrack();
             // Create a local video track from the video captured by a camera.
             rtc.localVideoTrack = await AgoraRTC.createCameraVideoTrack();
             // Publish the local audio and video tracks to the RTC channel.
