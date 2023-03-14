@@ -24,7 +24,6 @@ async function startBasicCall() {
 
     // Listen for the "user-published" event, from which you can get an AgoraRTCRemoteUser object.
     rtc.client.on("user-published", async (user, mediaType) => {
-		console.log("user go")
         // Subscribe to the remote user when the SDK triggers the "user-published" event
         await rtc.client.subscribe(user, mediaType);
         console.log("subscribe success");
@@ -73,7 +72,7 @@ async function startBasicCall() {
             // Create a local video track from the video captured by a camera.
             rtc.localVideoTrack = await AgoraRTC.createCameraVideoTrack();
             // Publish the local audio and video tracks to the RTC channel.
-            await rtc.client.publish([rtc.localVideoTrack]);
+            await rtc.client.publish([rtc.localAudioTrack,rtc.localVideoTrack]);
             // Dynamically create a container in the form of a DIV element for playing the local video track.
             const localPlayerContainer = document.createElement("div");
             // Specify the ID of the DIV container. You can use the uid of the local user.
@@ -85,14 +84,15 @@ async function startBasicCall() {
             // Play the local video track.
             // Pass the DIV container and the SDK dynamically creates a player in the container for playing the local video track.
             rtc.localVideoTrack.play(localPlayerContainer);
-            console.log("publish success!",options);
+			// Play the local audio track.
+			rtc.localAudioTrack.play()
+            console.log("publish success!");
         };
 
         document.getElementById("leave").onclick = async function () {
             // Destroy the local audio and video tracks.
-            // rtc.localAudioTrack.close();
+            rtc.localAudioTrack.close();
             rtc.localVideoTrack.close();
-
             // Traverse all remote users.
             rtc.client.remoteUsers.forEach(user => {
                 // Destroy the dynamically created DIV containers.
