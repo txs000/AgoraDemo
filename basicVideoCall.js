@@ -84,8 +84,6 @@ async function startBasicCall() {
             // Play the local video track.
             // Pass the DIV container and the SDK dynamically creates a player in the container for playing the local video track.
             rtc.localVideoTrack.play(localPlayerContainer);
-			// Play the local audio track.
-			rtc.localAudioTrack.play()
             console.log("publish success!");
         };
 
