@@ -12,7 +12,7 @@ let options = {
     // Set the channel name.
     channel: "test",
     // Pass your temp token here.
-    token: "007eJxTYOAtFV+24wj7s5zPKfcMZ93JFvzEFvboYWeJFeuzCecnP3BVYLC0SEwxMzY2SrI0SDNJMkq1MDEwMDBMtkgxM0gySE01FP7Pn9IQyMiwzqWCmZEBAkF8FoaS1OISBgYAf5kf1g==",
+    token: "007eJxTYCi8sumJUbfbg5qaxSdP/VxZX75W4v4R8+POi/a2yBa8vFOuwGBpkZhiZmxslGRpkGaSZJRqYWJgYGCYbJFiZpBkkJpqeHiZYEpDICMDs8IcVkYGCATxWRhKUotLGBgAO2YhqQ==",
     // Set the user ID.
     uid: parseInt(Math.random()),
 };
